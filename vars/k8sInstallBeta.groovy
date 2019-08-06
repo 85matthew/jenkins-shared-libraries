@@ -5,7 +5,6 @@ def call(project, domain, extraValues = "") {
     sh """helm install \
         helm/${project} \
         -n ${chartName.toLowerCase()} \
-        --tiller-namespace ${project}-build \
         --set image.tag=${tagBeta} \
         --set ingress.host=${addr.toLowerCase()} \
         ${extraValues}"""
