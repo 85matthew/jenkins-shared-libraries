@@ -4,7 +4,7 @@ def call(project, domain, extraValues = "") {
     addr = "${project}-${env.BUILD_NUMBER}-${env.BRANCH_NAME}.${domain}"
     sh """helm install \
         helm/${project} \
-        -n ${chartName.toLowerCase()} -i \
+        -n ${chartName.toLowerCase()} \
         --tiller-namespace ${project}-build \
         --set image.tag=${tagBeta} \
         --set ingress.host=${addr.toLowerCase()} \
